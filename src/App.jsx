@@ -5,6 +5,9 @@ import './index.css';
 import InscriptionForm from "./pages/InscriptionForm";
 import ConnexionForm from "./pages/ConnexionForm";
 import ProjectDetail from "./components/ProjectDetail";
+import { ProjectToValidate } from "./pages/ProjectToValidate";
+import { HomeAdmin } from "./pages/HomeAdmin";
+import { ProjectAdminDetail } from "./components/ProjectAdminDetail";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +63,15 @@ const router = createBrowserRouter([
         <ProjectToValidate />
       </>
     ),
+  },
+  {
+    path:"/projectAdmin/:id",
+    element:(
+      <>
+      <Header />
+      <ProjectAdminDetail />
+      </>
+    )
   }
 ]);
 
