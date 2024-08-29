@@ -6,6 +6,9 @@ import InscriptionForm from "./pages/InscriptionForm";
 import ConnexionForm from "./pages/ConnexionForm";
 import ProjectDetail from "./components/ProjectDetail";
 import Forum from "./pages/forum";
+import { ProjectToValidate } from "./pages/ProjectToValidate";
+import { HomeAdmin } from "./pages/HomeAdmin";
+import { ProjectAdminDetail } from "./components/ProjectAdminDetail";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +56,33 @@ const router = createBrowserRouter([
       </>
     ),
   },
+  {
+    path: "/admin",
+    element: (
+      <>
+        <Header />
+        <HomeAdmin />
+      </>
+    ),
+  },
+  {
+    path: "/admin/validation",
+    element: (
+      <>
+        <Header />
+        <ProjectToValidate />
+      </>
+    ),
+  },
+  {
+    path:"/projectAdmin/:id",
+    element:(
+      <>
+      <Header />
+      <ProjectAdminDetail />
+      </>
+    )
+  }
 ]);
 
 function App() {
