@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
 import { Button } from './Button';
 import { Eye } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-export const ProjectCard = ({ projectTitle }) => {
+export const ProjectCard = ({ projectTitle, projectId }) => {
     return (
         <div className='bg-primaryColor relative max-w-screen-md rounded-[30px] px-3 py-10 flex justify-center w-full mb-4'>
-            <h2 className='text-3xl text-black'>{projectTitle}</h2>
-            <Button icon={<Eye />} variant="primary" className={"absolute right-4 bottom-3"} />
-        </div>
+            <h1 className="text-4xl font-bold">{projectTitle}</h1>
+            <Link to={`/project/${projectId}`}>
+             <Button icon={<Eye />} variant="primary" className={"absolute right-4 bottom-3"} />
+            </Link>
+            </div>
     )
 }
 
 ProjectCard.propTypes = {
-    projectTitle: PropTypes.string.isRequired
+    projectTitle: PropTypes.string.isRequired,
+    projectId: PropTypes.string.isRequired,
 }
