@@ -1,19 +1,22 @@
-import React from 'react';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Home } from "./pages/Home";
 import Header from './components/Header';
 import './index.css'; 
 
-const App = () => {
-  return (
-    <div>
-      <Header />
-      <main>
-       
-      </main>
-      <main>
- 
-      </main>
-    </div>
-  );
-};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <Header />
+        <Home />
+      </>
+    ),
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
 
 export default App;
