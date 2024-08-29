@@ -4,6 +4,8 @@ import Header from './components/Header';
 import './index.css'; 
 import InscriptionForm from "./pages/InscriptionForm";
 import ConnexionForm from "./pages/ConnexionForm";
+import { HomeAdmin } from "./pages/HomeAdmin";
+import { ProjectToValidate } from "./pages/ProjectToValidate";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,24 @@ const router = createBrowserRouter([
       </>
     ),
   },
+  {
+    path: "/admin",
+    element: (
+      <>
+        <Header />
+        <HomeAdmin />
+      </>
+    ),
+  },
+  {
+    path: "/admin/validation",
+    element: (
+      <>
+        <Header />
+        <ProjectToValidate />
+      </>
+    ),
+  }
 ]);
 
 function App() {
