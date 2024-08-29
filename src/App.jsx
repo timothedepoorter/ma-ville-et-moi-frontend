@@ -5,6 +5,7 @@ import './index.css';
 import InscriptionForm from "./pages/InscriptionForm";
 import ConnexionForm from "./pages/ConnexionForm";
 import ProjectDetail from "./components/ProjectDetail";
+import Forum from "./pages/forum";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,15 @@ const router = createBrowserRouter([
       <>
         <Header />
         <ConnexionForm />
+      </>
+    ),
+  },
+  {
+    path: "/forum",
+    element: (
+      <>
+        <Header />
+        <Forum />
       </>
     ),
   },
