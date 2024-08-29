@@ -6,9 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-      "colors": {
+      colors: {
+        'color-background-blue-header': '#265D78',
+        'color-background-white-logo': '#F0F3F5',
       "primaryColor": '#9ABBCB',
-        "accentColor": '#00699E'
+        "accentColor": '#00699E',
+        "background-form": "#9ABBCB",
       }
     },
   },
