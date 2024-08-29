@@ -4,8 +4,7 @@ import Header from './components/Header';
 import './index.css'; 
 import InscriptionForm from "./pages/InscriptionForm";
 import ConnexionForm from "./pages/ConnexionForm";
-import { HomeAdmin } from "./pages/HomeAdmin";
-import { ProjectToValidate } from "./pages/ProjectToValidate";
+import ProjectDetail from "./components/ProjectDetail";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +15,15 @@ const router = createBrowserRouter([
         <Home />
       </>
     ),
+  },
+  {
+    path:"/project/:id",
+    element:(
+      <>
+      <Header />
+      <ProjectDetail />
+      </>
+    )
   },
   {
     path: "/inscription",
