@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ThumbsUp, MessageSquare, Undo2 } from 'lucide-react';
+import axios from 'axios';
 
 const ProjectDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  const [project, setProjects] = useState([]);
+    const navigate = useNavigate();
+    console.log(id);
+
+    async function useEffect(){
+      const response = await axios.get("http://localhost:8080/projects/" + id)
+        setProjects(response.data)
+        console.log(response.data);
+      };
+      useEffect();
   
   // Remplace par des données réelles
-  const projectData = {
-    [id]: {
-      title: 'Title project',
-      description: `Je propose qu'on mette deux lampadaires devant ma maison pour
-      que je puisse faire des économies sur ma facture d'électricité.`,
-    },
-  };
+  // const projectData = {
+  //   [id]: {
+  //     title: 'Title project',
+  //     description: `Je propose qu'on mette deux lampadaires devant ma maison pour
+  //     que je puisse faire des économies sur ma facture d'électricité.`,
+  //   },
+  // };
 
-  const project = projectData[id] || {};
+ // const project = projectData[id] || {};
 
   // État pour le nombre de likes
   const [likes, setLikes] = useState(0);
@@ -32,7 +42,7 @@ const ProjectDetail = () => {
           <Undo2 size={24} />
         </button>
         <h2 className="text-center text-black text-xl font-bold mb-4">{project.title}</h2>
-        <p className="mt-2 text-center text-black">{project.description}</p>
+        <p className="mt-2 text-center text-black">{project.content}</p>
         <div className="mt-4 flex justify-center space-x-4">
           <button 
             onClick={handleLike} 

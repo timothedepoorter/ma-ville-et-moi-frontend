@@ -1,23 +1,24 @@
 import { Check, Undo2, X } from "lucide-react/dist/cjs/lucide-react";
 import { Button } from "./Button";
-import { useNavigate } from "react-router-dom";
-import PropTypes from 'prop-types';
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export const ProjectAdminDetail = ({id}) => {
+export const ProjectAdminDetail = () => {
+  const { id } = useParams();
   const [project, setProjects] = useState([]);
     const navigate = useNavigate();
     console.log(id);
 
     async function useEffect(){
       const response = await axios.get("http://localhost:8080/projects/" + id)
-      //console.log(response)
         setProjects(response.data)
+        console.log(response.data);
       };
-    useEffect();
+      useEffect();
 
+      
     // Remplace par des données réelles
   // const projectAdminData = {
   //   [project]: {
@@ -33,7 +34,7 @@ export const ProjectAdminDetail = ({id}) => {
             <button onClick={() => navigate('/admin')} className="mb-4 px-2 py-2 text-black rounded">
                 <Undo2 size={24} />
             </button>
-                    <h2 className='text-center text-3xl text-black mb-6'>{project.id}</h2>
+                    <h2 className='text-center text-3xl text-black mb-6'>{project.title}</h2>
                     <p className='text-center text-3m text-black mb-12 ml-10 mr-10'>
                         {project.content}
                     </p>
@@ -44,6 +45,3 @@ export const ProjectAdminDetail = ({id}) => {
     );
 }
 
-ProjectAdminDetail.propTypes = {
-  project: PropTypes.string.isRequired,
-}

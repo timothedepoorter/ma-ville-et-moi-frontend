@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 export const ProjectCardAdmin = ({ project }) => {
 
+    
+
     return (
         <div className='bg-primaryColor relative max-w-screen-md rounded-[30px] px-3 py-10 flex justify-center w-full mb-4'>
             <h1 className="text-4xl font-bold">{project.title}</h1>
