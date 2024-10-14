@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - develop  # Déclenche le workflow sur des pushs vers la branche develop
+      - develop  
   pull_request:
     branches:
-      - develop  # Déclenche le workflow sur les pull requests vers develop
+      - develop  
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3  
         with:
-          node-version: '21'  
+          node-version: '20'  
 
       - name: Install dependencies
         run: npm install  
