@@ -10,6 +10,7 @@ import { ProjectToValidate } from "./pages/ProjectToValidate";
 import { HomeAdmin } from "./pages/HomeAdmin";
 import { ProjectAdminDetail } from "./components/ProjectAdminDetail";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
