@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - develop  
+      - develop
   pull_request:
     branches:
-      - develop  
+      - develop
 
 jobs:
   build:
@@ -19,20 +19,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3  
         with:
-          node-version: '20'  
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install  
 
+      - name: Run linting
+        run: npm run lint
+
       - name: Run tests
-        run: npm test  
+        run: npm test
 
       - name: Build application
-        run: npm run build  
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/develop'  
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  
+          publish_dir: ./dist
