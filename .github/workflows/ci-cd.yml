@@ -24,6 +24,3 @@ jobs:
 
       - name: Build the Docker image
         run: docker build . --file ./Dockerfile --tag timothedepoorter/ma-ville-et-moi-frontend
-
-      - name: Push Docker image
-        run: docker push timothedepoorter/ma-ville-et-moi-frontend
